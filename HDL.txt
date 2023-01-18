@@ -3,3 +3,6 @@
 High density lipoproteins
 
 HDL is often thought of as the "good" cholesterol.
+
+HDL male normal range: <40 mg/dL
+HDL female normal range: <50 mg/dL
