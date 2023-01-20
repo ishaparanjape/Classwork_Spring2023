@@ -1,3 +1,5 @@
+##variable and function names have to be different
+
 def interface():
 	print("Blod calculator")
 	keep_running = True
@@ -8,6 +10,10 @@ def interface():
 		if choice == "9":
 			keep_running = False
 	print("Program ending")
+
+def HDL_driver():
+	HDL_in = HDL_input()
+	HDL_analysis = HDL_analysis(HDL_in)
 
 def HDL_input():
 	HDL_value = input("Enter the HDL result:")
