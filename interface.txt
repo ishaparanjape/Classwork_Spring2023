@@ -70,6 +70,17 @@ def TotChol_driver():
 	LDL_in = LDL_input()
 	return HDL_in, LDL_in
 	
+def TotChol_analysis(HDL_in, LDL_in):
+	totchol = HDL_in + LDL_in
+	if totchol < 200:
+		answer = "Normal"
+	elif 200 <= totchol <= 239:
+		answer = "Borderline High"
+	else:
+		answer = "High"
+	return answer
+	
+	
 print("Program ending")
 
 interface()
