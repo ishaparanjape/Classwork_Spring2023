@@ -23,6 +23,11 @@ def HDL_input():
 	HDL_value = int(HDL_value)
 	return HDL_value
 
+def LDL_input():
+	LDL_value = input("Enter the LDL result:")
+	LDL_value = int(LDL_value)
+	return LDL_value
+
 def HDL_analysis(HDL_int):
 	if HDL_int >= 60:
 		answer = "Normal"
