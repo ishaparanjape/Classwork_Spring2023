@@ -13,6 +13,8 @@ def interface():
 			HDL_driver()
 		elif choice == "2":
 			LDL_driver()
+		elif choice == "3":
+			TotCholCalc()
 	print("Program ending")
 
 def HDL_driver():
@@ -62,6 +64,11 @@ def HDL_output(HDL_value, HDL_analy):
 def LDL_output(LDL_value, LDL_analy):
 	print("The LDL result of {} is considered {}".format(LDL_value, LDL_analy))
 	return
+	
+def TotCholCalc():
+	HDLv = input("Enter the HDL result:")
+	LDLv = input("Enter the LDL result:")
+	return HDLv, LDLv
 	
 print("Program ending")
 
