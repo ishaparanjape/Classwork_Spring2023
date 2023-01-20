@@ -68,9 +68,7 @@ def LDL_output(LDL_value, LDL_analy):
 def TotChol_driver():
 	HDL_in = HDL_input()
 	LDL_in = LDL_input()
-	return HDL_in, LDL_in
-	
-def TotChol_analysis(HDL_in, LDL_in):
+
 	totchol = HDL_in + LDL_in
 	if totchol < 200:
 		answer = "Normal"
@@ -78,7 +76,9 @@ def TotChol_analysis(HDL_in, LDL_in):
 		answer = "Borderline High"
 	else:
 		answer = "High"
-	return answer
+		
+	print("The Total Cholesterol vlaue of {} is considered {}".format(totchol, answer))
+	return
 	
 	
 print("Program ending")
