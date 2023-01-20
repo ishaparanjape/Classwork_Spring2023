@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 ##variable and function names have to be different
 
+=======
+>>>>>>> e25af1300aa86849a1e4a53a4b3cde5004502455
 def interface():
 	print("Blod calculator")
 	keep_running = True
@@ -9,6 +12,7 @@ def interface():
 		choice = input("Select an option:")
 		if choice == "9":
 			keep_running = False
+<<<<<<< HEAD
 		elif choice == "1":
 			HDL_driver()
 		elif choice == "2":
@@ -62,4 +66,8 @@ def LDL_output(LDL_value, LDL_analy):
 	print("The LDL result of {} is considered {}".format(LDL_value, LDL_analy))
 	return
 	
+=======
+	print("Program ending")
+
+>>>>>>> e25af1300aa86849a1e4a53a4b3cde5004502455
 interface()
