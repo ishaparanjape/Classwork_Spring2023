@@ -3,21 +3,31 @@ def create_patient_entry(first_name, last_name, patient_mrn, patient_age):
     new_patient = {"first name": first_name, "last name": last_name, "MRN": patient_mrn, "patient age": patient_age, "tests": []} 
     return new_patient
 
-
 def main_driver():
-    db = []
-    db.append(create_patient_entry("Ann", "Ables", 1, 34))
-    db.append(create_patient_entry("Bob", "Boyles", 2, 45))
-    db.append(create_patient_entry("Chris", "Chou", 3, 52))
+# {} is a dictionary, db[] appends dictionary
+    db = {}
+    db[1] = (create_patient_entry("Ann", "Ables", 1, 34))
+    db[2] = (create_patient_entry("Bob", "Boyles", 2, 45))
+    db[3] = (create_patient_entry("Chris", "Chou", 3, 52))
     print(db)
+    print_database(db)
     return
+    # print(db)
     add_test_to_patient(db, 1, "HDL", 120)
     add_test_to_patient(db, 2, "LDL", 100)
     add_test_to_patient(db, 2, "HDL", 99)
-    room_numbers = ["103", "232", "333"]
-    print(db)
-    print_directory(db, room_numbers)
+    # room_numbers = ["103", "232", "333"]
+    # print(db)
+    # print_directory(db, room_numbers)
     print(get_test_result(db, 2, "LDL"))
+    return
+
+def print_database(db):
+    for patient in db.values():
+        print("MRN: {}, Full Name: {}, Age: {}".format(patient["MRN"], get_full_name(patient), patient["patient age"]))
+    
+def get_full_name(patient):
+    return "{} {}".format(patient["first name"], patient["last name"])
 
 
 def print_directory(db, room_numbers):
@@ -26,11 +36,10 @@ def print_directory(db, room_numbers):
     for patient, rn in zip(db, room_numbers):
         print("Patient {} is in room {}".format(patient[0], rn))
 
-
 def get_patient_entry(db, mrn_to_find):
-    for patient in db:
-        if patient[1] == mrn_to_find:
-            return patient
+    patient = db.get(mrn_to_find)
+    if patient is None:
+        return patient
     return False
 
 
@@ -39,7 +48,7 @@ def add_test_to_patient(db, mrn_to_find, test_name, test_value):
     if patient is False:
         print("Bad entry")
     else:
-        patient[3].append([test_name, test_value])
+        patient["tests"].append([test_name, test_value])
     return
 
 
@@ -52,7 +61,7 @@ def get_test_value_from_test_list(test_list, test_name):
 
 def get_test_result(db, mrn, test_name):
     patient = get_patient_entry(db, mrn)
-    test_value = get_test_value_from_test_list(patient[3], test_name)
+    test_value = get_test_value_from_test_list(patient["tests"], test_name)
     return test_value
 
 
